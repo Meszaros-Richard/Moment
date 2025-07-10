@@ -1,0 +1,19 @@
+<div #filterSidebar class="sidebar" [ngClass]="{'open': isOpen}" (leftBoundary)="closeSidebar()" (click)="openSidebarFilter()">
+    <div class="sidebar-header">
+        <i class="bi bi-funnel-fill"></i>
+        <p class="text">Kategória szűrő</p>
+
+        <i class="bi bi-chevron-right toggle" (click)="toggleSidebarFilter($event)"></i>
+    </div>
+
+    <div class="categoryFilter" (click)="focusFilter()">
+        <i class="bi bi-search"></i>
+        <input #filter type="text" placeholder="Kategória keresése" maxlength="20" [(ngModel)]="categoryFilterText">
+    </div>
+
+    <div class="category-list">
+        <label class="category" *ngFor="let category of categories | filterCategory: categoryFilterText">
+            <input type="checkbox" name="{{category.name}}" [checked]="category.isSelected" (click)="toggleCategorySelection(category.id)"> {{category.name}}
+        </label>
+    </div>
+</div>

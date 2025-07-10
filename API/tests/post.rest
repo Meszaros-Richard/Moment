@@ -1,0 +1,61 @@
+@serverURL = http://localhost:3000
+
+@token = {{login.response.body.token}}
+
+@postID = {{posts.response.body.0.id}}
+
+
+### login (only for token)
+# @name login
+POST {{serverURL}}/users/login
+Content-Type: application/json
+
+{
+    "email": "jani@gmail.com",
+    "password": "Titkosjelszo123"
+}
+
+### get all posts
+# @name posts
+GET {{serverURL}}/posts/get/all
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### get post by postID
+GET {{serverURL}}/posts/{{postID}}
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### create post
+POST {{serverURL}}/posts/create
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "title": "Teszt cím",
+    "description": "Teszt leírás",
+    "visible": 1,
+    "categoryID": "87f7321b-2467-4693-a798-ac63810cda3d"
+}
+
+### update post by postID
+PATCH {{serverURL}}/posts/update/{{postID}}
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "title": "Teszt cím2",
+    "description": "Teszt leírás2",
+    "visible": 1,
+    "categoryID": "5c33518e-fa00-439b-92cb-6ab865c459ff"
+}
+
+### delete post by postID
+DELETE {{serverURL}}/posts/delete/{{postID}}
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### like post by postID
+POST {{serverURL}}/posts/like/{{postID}}
+Content-Type: application/json
+Authorization: Bearer {{token}}

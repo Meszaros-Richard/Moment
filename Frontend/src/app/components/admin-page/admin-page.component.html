@@ -1,0 +1,31 @@
+<app-navbar></app-navbar>
+
+<app-sidebar-filter/>
+
+<div class="tab-container">
+
+  <div class="tab-body">
+    <div class="category-upload">
+      <h2>Kategória létrehozása</h2>
+    
+      <input type="text" [(ngModel)]="newCategoryName" placeholder="Kategórianév" maxlength="30" class="createField"/>
+      
+      <button (click)="createCategory()" class="createButton">Létrehozás</button>
+
+      <table>
+        <tbody>
+          <tr *ngFor="let category of categories">
+            <td>{{ category.name }}</td>
+            <td><div class="delete-button" (click)="deleteCategoryByID(category.id)"><i class="bi bi-trash delete-button"></i>Törlés</div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div *ngIf="activeTabId === 'stats'" class="user-table-container">
+      <h2>Felhasználók listája</h2>
+    </div>
+
+  </div>
+</div>
+
+<app-dialog/>

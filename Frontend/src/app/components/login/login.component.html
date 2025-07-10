@@ -1,0 +1,9 @@
+<app-general-input-form>
+    <app-general-input #email [getType]="'email'" [getPlaceholder]="'Email cím'"></app-general-input>
+    <app-general-input #password [getType]="'password'" [getPlaceholder]="'Jelszó'"></app-general-input>
+
+    <app-general-button [getText]="'Bejelentkezés'" (click)="login()"/>
+
+    <app-general-link [getPath]="'/forgot'" [getText]="'Elfelejtettem a jelszavam..'"/>
+    <app-general-link [getPath]="'/registration'" [getText]="'Még nincs fiókom..'"/>
+</app-general-input-form>

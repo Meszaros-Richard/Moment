@@ -1,0 +1,26 @@
+@use "../../../styles.scss" as *;
+
+.ban-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    height: 30px;
+    margin-left: 8px;
+    color: white;
+    font-family: $theme-font-family;
+    letter-spacing: .75px;
+    background-color: rgb(170, 30, 30);
+    border-radius: 20px;
+    margin: 2px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 6px;
+    padding-right: 6px;
+    cursor: pointer;
+}
+
+.ban-button:hover{
+    color: rgb(220, 220, 220);
+    background-color: rgb(135, 30, 30);;;
+}

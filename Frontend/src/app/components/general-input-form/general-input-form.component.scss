@@ -1,0 +1,26 @@
+@use "../../../styles.scss" as *;
+
+.form-container{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-box{
+    width: 22.5rem;
+    padding: 2.5rem;
+}
+
+.form-items{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.instructions{
+    text-align: center;
+    margin-bottom: 10px;
+    color: $dark-text-color;
+}

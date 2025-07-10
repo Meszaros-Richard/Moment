@@ -1,0 +1,13 @@
+<div class="comment-container">
+    <div class="new-comment-input">
+        <app-general-button *ngIf="!isCommenting" [getText]="'Komment hozzáadása'" (click)="openCommenting()"/>
+
+        <app-message-input *ngIf="isCommenting" [getButtonText]="'Hozzáad'" (onCancel)="closeCommenting()" (onSave)="createComment($event)"/>
+    </div>
+
+    <app-comment [getCommentData]="comment" *ngFor="let comment of comments">
+        <app-comment [getCommentData]="reply" *ngFor="let reply of comment.replies"/>
+    </app-comment>
+
+    <app-loading *ngIf="fetching"/>
+</div>

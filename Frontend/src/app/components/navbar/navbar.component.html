@@ -1,0 +1,34 @@
+<nav>
+    <div class="navbar-header">
+        <a href="/" class="logo">
+            <img src="momentLogo.png">
+            <h1>MOMENT</h1>
+        </a>
+
+        <div class="searchbar-container">
+            <app-searchbar/>
+        </div>
+
+        <div class="navbarProfile" (click)="openSidebarMenu($event)">
+            <img src="{{auth.getLoggedInUser().profilePicture}}" alt="">
+        </div>
+    </div>
+
+    <div class="linksContainer" (leftBoundary)="closeSidebarMenu()">
+        <div class="linksHeader">
+            <div class="user-data">
+                <img src="{{auth.getLoggedInUser().profilePicture}}" alt="">
+                <p id="username">{{auth.getLoggedInUser().username}}</p>
+            </div>
+
+            <i class="bi bi-x-lg closeMenuButton" (click)="closeSidebarMenu()"></i>
+        </div>
+
+        <hr>
+      
+        <a href="/postupload" class="link"><i class="bi bi-file-earmark-arrow-up"></i> Poszt létrehozása</a>
+        <a href="/user/{{auth.getLoggedInUser().username}}" class="link"><i class="bi bi-person"></i> Saját profil</a>
+        <a href="/admin" class="link" *ngIf="auth.getLoggedInUser().role == 'admin'"><i class="bi bi-house"></i> Admin</a>
+        <span class="link" (click)="logout()"><i class="bi bi-box-arrow-right"></i> Kijelentkezés</span>
+    </div>
+</nav>

@@ -1,0 +1,69 @@
+@use "../../../styles.scss" as *;
+
+.comment {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    color: $dark-text-color;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.comment-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.edit-button{
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.delete-button{
+    color: red;
+    cursor: pointer;
+}
+
+.comment-content{
+    margin-left: 32px;
+}
+
+.comment-message{
+    word-wrap: break-word;
+}
+
+.comment-actions{
+    display: flex;
+    margin-top: 5px;
+}
+
+span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    padding-left: 4px;
+    padding-right: 4px;
+    border-radius: 10px;
+    width: fit-content;
+    height: 32px;
+    cursor: pointer;
+    user-select: none;
+}
+
+span:hover{
+    background-color: rgb(50, 50, 50);
+}
+
+.replyToggle{
+    margin-top: 2px;
+    margin-left: 12px;
+    font-size: 1rem;
+}
+
+@media screen and (max-width: 380px) {
+    .inline-actions{
+        display: none;
+    }  
+}

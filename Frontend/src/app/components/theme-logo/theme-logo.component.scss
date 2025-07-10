@@ -1,0 +1,24 @@
+@use "../../../styles.scss" as *;
+
+.logoContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logoContainer img{
+    width: 100%;
+    height: auto;
+    filter:  $logo-invert;
+}
+
+.logoContainer h1{
+    text-align: center;
+    font-size: 4rem;
+    font-weight: 400;
+    font-style: normal;
+    color: $theme-color;
+    font-family: $theme-font-family;
+}

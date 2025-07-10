@@ -1,0 +1,145 @@
+@use "../../../styles.scss" as *;
+
+.sidebar{
+    position: fixed;
+    width: 60px;
+    height: calc(100% - 55px);
+    padding: 2px 10px;
+    transition: .2s;
+    z-index: 50;
+    box-shadow: 2px 0 10px 6px rgba(0, 0, 0, .3);
+    border-right: 1px solid $dark-border-color;
+    color: $dark-text-color;
+    background-color: $dark-background-color;
+}
+
+.sidebar.open{
+    width: 15rem;
+}
+
+.sidebar-header .toggle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 10px;
+    right: -24px;
+    font-size: 18px;
+    border-radius: 100%;
+    transition: .2s;
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.4);
+    border: 1px solid $dark-border-color;
+    background-color: $dark-background-color;
+}
+
+.sidebar-header .toggle:hover{
+    background-color: $dark-content-hover-background-color;
+}
+
+.sidebar.open .sidebar-header .toggle{
+    transform: rotateZ(180deg);
+}
+
+.sidebar .text, .sidebar .category-list{
+    opacity: 0;
+    pointer-events: none;
+    transition: .2s;
+}
+
+.sidebar.open .text, .sidebar.open .category-list{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.sidebar-header{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.sidebar-header i:first-child{
+    font-size: 1.8rem;
+    margin-left: 5px;
+}
+
+.sidebar-header .text{
+    white-space: nowrap;
+    font-size: 20px;
+    font-size: 1.25rem;
+    margin-left: 20px;
+    overflow: hidden;
+}
+
+.category-list{
+    max-height: calc(100% - 100px);
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    overscroll-behavior: contain;
+}
+
+.category{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 3.2rem;
+    padding: 2px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    transition: .2s;
+    overflow: hidden;
+    user-select: none;
+    border: 1px solid $dark-border-color;
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.4);
+}
+
+.category:hover{
+    background-color: $dark-content-hover-background-color;
+}
+
+.category input{
+    margin-left: 20px;
+    margin-right: 20px;
+    scale: 1.25;
+}
+
+.categoryFilter{
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 35px;
+    height: 2.3rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: 1px solid $dark-border-color;
+    background-color: $dark-content-background-color;
+}
+
+.categoryFilter i{
+    display: flex;
+    align-items: center;
+    padding: 3px;
+    height: 100%;
+    margin-left: 8px;
+    font-size: 1rem;
+}
+
+.categoryFilter input{
+    width: 100%;
+    height: 100%;
+    font-size: 1rem;
+    text-indent: 8px;
+    user-select: none;
+    color: $dark-text-color;
+    background-color: transparent;
+}
+
+@media screen and (max-width: 800px) {
+    .category input{
+        scale: 1.15;
+    }
+}

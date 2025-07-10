@@ -1,0 +1,14 @@
+<a class="post" href="/post/{{postData.postID}}/{{processedTitle}}">
+    <app-user-content-header [getProfilePicture]="postData.profilePicture" [getUsername]="postData.username" [getCreatedAt]="postData.createdAt"/>
+
+    <div class="post-body">
+        <h2 class="post-title">{{postData.title}}</h2>
+        <p class="post-category">{{postData.category}}</p>
+        <app-lightbox-listener [getImage]="postData.image"/>
+    </div>
+
+    <div class="post-footer">
+        <app-like-button [getType]="'posts'" [getID]="postData.postID" [getLikes]="postData.likes" [getIsLiked]="postData.liked"/>
+        <app-copy (click)="copyURL()" title="URL másolása"/>
+    </div>
+</a>

@@ -1,0 +1,85 @@
+@use "../../../styles.scss" as *;
+
+.post {
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: .5rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    color: $dark-text-color;
+    background-color: $dark-content-background-color;
+    transition: .15s;
+    cursor: pointer;
+}
+
+.post:hover {
+    background-color: $dark-content-hover-background-color;
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.post-author {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.post-author span {
+    color: $dark-text-color;
+    margin-left: 3px;
+}
+
+.post-author:hover span{
+    color: $dark-link-hover-color;
+}
+
+.post-author:active span{
+    color: $dark-link-active-color;
+}
+
+.post-author img{
+    width: 30px;
+    height: 30px;
+    border: 1px solid $dark-border-color;
+    border-radius: 100%;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.post-category {
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    font-size: .85rem;
+    width: fit-content;
+    border-radius: 20px;
+    background-color: $dark-button-background-color;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.post-body {
+    margin-bottom: 15px;
+}
+
+.post-title {
+    font-size: 1.3rem;
+    margin: 0;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.post-footer {
+    display: flex;
+    align-items: center;
+}

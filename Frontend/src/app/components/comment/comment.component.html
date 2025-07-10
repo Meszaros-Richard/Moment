@@ -1,0 +1,27 @@
+<div class="comment">
+    <div class="comment-header">
+        <app-user-content-header [getProfilePicture]="commentData.profilePicture" [getUsername]="commentData.username" [getCreatedAt]="commentData.createdAt"/>
+
+        <app-content-menu *ngIf="(commentData.owned == true || auth.getLoggedInUser().role == 'admin') && !isEditing" (onModify)="openUpdate()" (onDelete)="deleteComment()"/>
+    </div>
+
+    <div class="comment-content">
+        <div class="comment-message" *ngIf="!isEditing" [innerHTML]="commentData.message"></div>
+
+        <app-message-input *ngIf="isEditing && (commentData.owned || auth.getLoggedInUser().role == 'admin')" [showProfile]="false" [getButtonText]="'Mentés'" [getInitialText]="commentData.message" (onSave)="updateComment($event)" (onCancel)="closeUpdate()"/>
+
+        <div class="comment-actions">
+            <app-like-button [getType]="'comments'" [getID]="commentData.id" [getLikes]="commentData.likes" [getIsLiked]="commentData.liked"/>
+
+            <span (click)="openReply()">Válasz</span>
+        </div>
+
+        <app-message-input *ngIf="isReplying" [getButtonText]="'Hozzáad'" (onSave)="replyToComment($event)" (onCancel)="closeReply()"/>
+
+        <span class="replyToggle" (click)="toggleShowReplies()" *ngIf="commentData.replies">{{showReplies ? '/\\' : '\\/'}} {{commentData.replies.length}} válasz</span>
+
+        <div class="replies" *ngIf="showReplies">
+            <ng-content/>
+        </div>
+    </div>
+</div>

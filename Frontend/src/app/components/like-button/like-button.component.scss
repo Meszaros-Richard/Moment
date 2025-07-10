@@ -1,0 +1,43 @@
+@use "../../../styles.scss" as *;
+
+.like-button-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: fit-content;
+    height: 2rem;
+    margin-right: 5px;
+    border-radius: 20px;
+    background-color: $dark-button-background-color;
+    cursor: default;
+}
+
+.like-count p{
+    font-size: 1rem;
+    margin: 8px;
+}
+
+.svg-container{
+    display: flex;
+    align-items: center;
+}
+
+.like-btn{
+    width: 1.6rem;
+    height: 1.6rem;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.like-btn path{
+    fill: grey;
+    transition: .5s;
+}
+
+.like-btn:hover path{
+    fill: #f55e98;
+}
+
+.like-btn.liked path{
+    fill: #ff0062;
+}
